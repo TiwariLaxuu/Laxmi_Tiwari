@@ -1,1 +1,421 @@
-<h1> Welcome to my Website </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Laxmi Tiwari — AI Engineer | RL in Finance | Portfolio</title>
+  <meta name="description" content="Portfolio of Laxmi Tiwari — AI Engineer working on Reinforcement Learning in Finance, Train Optimization, and Board Games." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- Base & Theme ---------- */
+    :root {
+      --bg: #0b0f14;
+      --panel: #111723;
+      --text: #e6eefc;
+      --muted: #9fb1cc;
+      --brand: #6aa6ff;
+      --brand-2: #8ef0d0;
+      --card: #0f1624;
+      --border: 1px solid rgba(255,255,255,0.08);
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --radius-xl: 18px;
+      --radius-2xl: 24px;
+      --radius-3xl: 32px;
+      --container: 1200px;
+    }
+
+    /* Light theme (toggled via checkbox below) */
+    #theme-toggle:checked ~ .site { 
+      --bg: #f7fafc; 
+      --panel: #ffffff; 
+      --text: #0b1220; 
+      --muted: #39445a; 
+      --brand: #2952ff; 
+      --brand-2: #0fb; 
+      --card: #ffffff; 
+      --border: 1px solid rgba(0,0,0,0.08);
+      --shadow: 0 10px 30px rgba(22,27,29,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 80% -10%, rgba(106,166,255,0.15), transparent 60%),
+                  radial-gradient(800px 500px at -10% 10%, rgba(142,240,208,0.12), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ---------- Layout ---------- */
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+    .site { min-height: 100dvh; }
+
+    /* ---------- Navbar ---------- */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: saturate(120%) blur(8px);
+      background: linear-gradient(to bottom, rgba(10,14,20,0.75), rgba(10,14,20,0.35));
+      border-bottom: var(--border);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+    .brand { display: flex; gap: 12px; align-items: center; font-weight: 700; letter-spacing: 0.2px; }
+    .brand-badge {
+      width: 36px; height: 36px; border-radius: 12px; display: grid; place-items: center;
+      background: conic-gradient(from 210deg, var(--brand), var(--brand-2));
+      color: #091018; font-weight: 800; box-shadow: var(--shadow);
+    }
+    .nav a.link { opacity: 0.9; transition: opacity .2s ease, transform .2s ease; padding: 8px 12px; border-radius: 10px; }
+    .nav a.link:hover { opacity: 1; transform: translateY(-1px); background: rgba(255,255,255,0.06); }
+
+    /* Theme switch */
+    #theme-toggle { position: absolute; left: -9999px; }
+    .switch {
+      display: inline-flex; align-items: center; gap: 10px; cursor: pointer; user-select: none;
+      padding: 6px 10px; border-radius: 999px; border: var(--border); background: rgba(255,255,255,0.05);
+    }
+    .switch .track { width: 46px; height: 24px; background: rgba(255,255,255,0.2); border-radius: 999px; position: relative; }
+    .switch .thumb { width: 20px; height: 20px; background: #fff; border-radius: 50%; position: absolute; top: 2px; left: 2px; transition: transform .25s ease; box-shadow: var(--shadow); }
+    #theme-toggle:checked ~ .site .switch .thumb { transform: translateX(22px); }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: 80px 0 60px; }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items: center; }
+    .hero-title { font-size: clamp(32px, 4.5vw, 56px); line-height: 1.05; margin: 0 0 14px; font-weight: 800; }
+    .hero-sub { color: var(--muted); font-size: clamp(16px, 2vw, 19px); margin-bottom: 26px; }
+
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 14px; border: var(--border); background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); box-shadow: var(--shadow);
+      font-weight: 600; }
+    .btn.primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #061019; border: none; }
+    .btn:hover { transform: translateY(-2px); transition: transform .2s ease; }
+
+    .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+    .stat { padding: 16px; border-radius: var(--radius-xl); border: var(--border); background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); }
+    .stat .kpi { font-size: 22px; font-weight: 800; }
+    .stat .label { color: var(--muted); font-size: 13px; }
+
+    .hero-card {
+      border: var(--border); border-radius: var(--radius-3xl); background: radial-gradient(400px 200px at 80% 0%, rgba(106,166,255,0.25), transparent 60%), var(--card);
+      padding: 20px; box-shadow: var(--shadow);
+    }
+    .tagline { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 999px; border: var(--border); color: var(--muted); font-size: 13px; }
+
+    /* ---------- Sections ---------- */
+    .section { padding: 60px 0; }
+    .section h2 { margin: 0 0 16px; font-size: clamp(22px, 3vw, 32px); }
+    .section p.lead { color: var(--muted); margin-top: -6px; }
+
+    /* About */
+    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .about .panel { border: var(--border); border-radius: var(--radius-2xl); padding: 20px; background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); }
+    .chips { display: flex; gap: 10px; flex-wrap: wrap; }
+    .chip { padding: 6px 10px; border-radius: 999px; background: rgba(106,166,255,0.14); border: 1px dashed rgba(106,166,255,0.35); font-size: 12px; }
+
+    /* Tabs (CSS-only) */
+    .tabs { display: grid; gap: 14px; }
+    .tabs > input { position: absolute; left: -9999px; }
+    .tab-nav { display: flex; gap: 10px; flex-wrap: wrap; }
+    .tab-nav label { padding: 10px 12px; border-radius: 12px; border: var(--border); cursor: pointer; opacity: 0.85; }
+    .tab-nav label:hover { opacity: 1; }
+    .tab-content { display: none; }
+    #tab1:checked ~ .tab-panels #content1,
+    #tab2:checked ~ .tab-panels #content2,
+    #tab3:checked ~ .tab-panels #content3 { display: block; }
+
+    /* Projects */
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { position: relative; overflow: clip; border-radius: var(--radius-2xl); border: var(--border); background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); box-shadow: var(--shadow); }
+    .card .thumb { height: 150px; background: linear-gradient(120deg, rgba(106,166,255,0.25), rgba(142,240,208,0.25)); }
+    .card .body { padding: 16px; }
+    .card h3 { margin: 0 0 6px; font-size: 18px; }
+    .card p { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
+    .card .meta { display: flex; gap: 8px; flex-wrap: wrap; }
+    .pill { font-size: 11px; padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,0.06); border: var(--border); }
+    .card:hover { transform: translateY(-4px); transition: transform .2s ease; }
+
+    /* Achievements timeline */
+    .timeline { position: relative; padding-left: 22px; }
+    .timeline::before { content: ""; position: absolute; left: 8px; top: 4px; bottom: 4px; width: 2px; background: linear-gradient(var(--brand), transparent); }
+    .tick { position: relative; margin: 0 0 16px; padding: 12px 14px; border-radius: 14px; border: var(--border); background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); }
+    .tick::before { content: ""; position: absolute; left: -16px; top: 16px; width: 10px; height: 10px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 0 3px rgba(106,166,255,0.25); }
+
+    /* Blog (details/summary) */
+    .notes { display: grid; gap: 12px; }
+    details.note { border: var(--border); border-radius: 14px; background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); padding: 12px 14px; }
+    summary { cursor: pointer; font-weight: 600; }
+    details[open] { box-shadow: var(--shadow); }
+
+    /* Contact */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .contact .panel { border: var(--border); border-radius: var(--radius-2xl); padding: 20px; background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); }
+    .input { width: 100%; padding: 12px 14px; border-radius: 12px; border: var(--border); background: rgba(255,255,255,0.04); color: var(--text); outline: none; }
+    textarea.input { min-height: 120px; resize: vertical; }
+
+    /* Footer */
+    footer { padding: 28px 0 60px; color: var(--muted); text-align: center; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .about { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .cards { grid-template-columns: 1fr; }
+      .stat-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Theme Toggle (CSS-only) -->
+  <input type="checkbox" id="theme-toggle" aria-label="Toggle light mode" />
+
+  <div class="site">
+    <!-- Navbar -->
+    <nav class="nav">
+      <div class="container nav-inner">
+        <div class="brand">
+          <div class="brand-badge">LT</div>
+          <div>Laxmi Tiwari</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <a class="link" href="#about">About</a>
+          <a class="link" href="#projects">Projects</a>
+          <a class="link" href="#achievements">Achievements</a>
+          <a class="link" href="#notes">Notes</a>
+          <a class="link" href="#contact">Contact</a>
+          <label class="switch" for="theme-toggle" title="Toggle theme">
+            <span style="font-size:12px;opacity:.8;">Light</span>
+            <span class="track"><span class="thumb"></span></span>
+          </label>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="section hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="tagline">AI Engineer • RL in Finance • Aspiring Quant</span>
+          <h1 class="hero-title">Hi, I'm Laxmi Tiwari.<br/>I build learning systems that trade, optimize, and adapt.</h1>
+          <p class="hero-sub">From Reinforcement Learning for crypto/forex to train route optimization and board-game environments (PettingZoo), I design agents, rewards, and evaluation pipelines that work in the wild.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#projects">Explore Projects</a>
+            <a class="btn" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="#contact">Contact</a>
+          </div>
+          <div class="stat-grid">
+            <div class="stat"><div class="kpi">+10</div><div class="label">RL Envs & Backtests</div></div>
+            <div class="stat"><div class="kpi">2×</div><div class="label">Ready Tensor Awards (2024)</div></div>
+            <div class="stat"><div class="kpi">5+ yrs</div><div class="label">Hands-on AI</div></div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h3 style="margin:0 0 10px;">What I'm focused on</h3>
+          <div class="tabs">
+            <input type="radio" id="tab1" name="tabs" checked>
+            <input type="radio" id="tab2" name="tabs">
+            <input type="radio" id="tab3" name="tabs">
+            <div class="tab-nav">
+              <label for="tab1">Finance RL</label>
+              <label for="tab2">Optimization</label>
+              <label for="tab3">Research</label>
+            </div>
+            <div class="tab-panels">
+              <div id="content1" class="tab-content">
+                <p>Cooperative multi‑agent RL to dynamically optimize take‑profit & stop‑loss, robust reward design, slippage/spread modeling, and OHLCV‑only setups. Emphasis on evaluation realism and risk control.</p>
+                <div class="chips">
+                  <span class="chip">Gym/PettingZoo</span>
+                  <span class="chip">PPO/A2C</span>
+                  <span class="chip">Transformers</span>
+                  <span class="chip">Backtesting</span>
+                </div>
+              </div>
+              <div id="content2" class="tab-content">
+                <p>Smart train routing with constraints, velocity/distance normalization, and custom reward shaping; explores parallel training and HPO for real‑time decisions.</p>
+                <div class="chips">
+                  <span class="chip">Parallel RL</span>
+                  <span class="chip">Optuna/HPO</span>
+                  <span class="chip">MATLAB/PyTorch</span>
+                </div>
+              </div>
+              <div id="content3" class="tab-content">
+                <p>Lifelong learning, catastrophic forgetting mitigation, and AlphaZero‑style search for trading and games; writing up notes and reproducible experiments.</p>
+                <div class="chips">
+                  <span class="chip">SNN Modules</span>
+                  <span class="chip">AlphaZero Ideas</span>
+                  <span class="chip">RL in Markets</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About Me</h2>
+        <p class="lead">AI Engineer from Nepal with a strong math background. I work on Reinforcement Learning systems for finance and operations, and I'm aiming for a Quant role.</p>
+        <div class="about">
+          <div class="panel">
+            <h3>Profile</h3>
+            <p>
+              • B.E. Electronics & Communication (2019).<br/>
+              • RL across finance, HVAC, train routing, and games.<br/>
+              • Freelance AI engineer on Upwork; AI Engineer at Logictronix Technologies.
+            </p>
+          </div>
+          <div class="panel">
+            <h3>Skills</h3>
+            <div class="chips">
+              <span class="chip">RL (PPO, A2C, DQN)</span>
+              <span class="chip">Transformers/LSTM</span>
+              <span class="chip">Gym/PettingZoo</span>
+              <span class="chip">PyTorch</span>
+              <span class="chip">Backtesting & Evaluation</span>
+              <span class="chip">MATLAB</span>
+              <span class="chip">Feature Engineering</span>
+              <span class="chip">Time Series</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Highlighted Projects</h2>
+        <p class="lead">Interactive cards — click through to repos or live demos when available.</p>
+        <div class="cards">
+          <article class="card">
+            <div class="thumb" role="img" aria-label="Dynamic TP/SL optimization"></div>
+            <div class="body">
+              <h3>Dynamic TP/SL with Multi‑Agent RL</h3>
+              <p>Cooperative agents adjust take‑profit & stop‑loss thresholds in crypto markets to improve risk‑adjusted returns.</p>
+              <div class="meta">
+                <span class="pill">PPO</span>
+                <span class="pill">Multi‑Agent</span>
+                <span class="pill">OHLCV</span>
+              </div>
+            </div>
+            <a href="#" class="stretched" aria-label="Open project"></a>
+          </article>
+
+          <article class="card">
+            <div class="thumb" role="img" aria-label="Train route optimization"></div>
+            <div class="body">
+              <h3>Smart Train Optimization</h3>
+              <p>Custom RL environment with distance/velocity normalization and safety constraints for efficient routing.</p>
+              <div class="meta">
+                <span class="pill">Custom Env</span>
+                <span class="pill">Reward Shaping</span>
+                <span class="pill">MATLAB + PyTorch</span>
+              </div>
+            </div>
+            <a href="#" class="stretched" aria-label="Open project"></a>
+          </article>
+
+          <article class="card">
+            <div class="thumb" role="img" aria-label="AlphaZero for trading"></div>
+            <div class="body">
+              <h3>AlphaZero‑Inspired Trading Agent</h3>
+              <p>Combines policy/value learning with search to evaluate entries/exits beyond myopic signals.</p>
+              <div class="meta">
+                <span class="pill">Policy/Value</span>
+                <span class="pill">MCTS</span>
+                <span class="pill">Backtests</span>
+              </div>
+            </div>
+            <a href="#" class="stretched" aria-label="Open project"></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements" class="section">
+      <div class="container">
+        <h2>Awards & Achievements</h2>
+        <div class="timeline">
+          <div class="tick"><strong>2024</strong> — Best AI Tool Innovation (Ready Tensor AI Project) for <em>SumBot FreeCode</em>, a summarization chatbot.</div>
+          <div class="tick"><strong>2024</strong> — Most Promising Innovation (Ready Tensor AI Project) for cooperative RL in FOREX TP/SL optimization.</div>
+          <div class="tick"><strong>2019–Present</strong> — Multiple hackathons; focus on building fast, iterative proofs‑of‑concept in finance.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Notes / Blog -->
+    <section id="notes" class="section">
+      <div class="container">
+        <h2>Notes & Write‑ups</h2>
+        <p class="lead">Short, expandable notes. Use these to share research, pitfalls, and reproducibility tips.</p>
+        <div class="notes">
+          <details class="note">
+            <summary>Reward Design for Trading Agents</summary>
+            <p>Switch from raw PnL to risk‑aware rewards (e.g., downside penalties, exposure regularization, and drawdown‑sensitive components). Consider <em>episode‑end</em> bonuses for stability vs. frequent small rewards.</p>
+          </details>
+          <details class="note">
+            <summary>Normalization for Mixed‑Scale Observations</summary>
+            <p>Velocity & distance benefit from scaling to similar ranges (e.g., standardization or min‑max per feature). For online systems, maintain streaming stats or robust clipping windows.</p>
+          </details>
+          <details class="note">
+            <summary>Reliable Backtesting</summary>
+            <p>Include slippage/spread, latency, partial fills, and transaction costs; evaluate with walk‑forward splits and stress scenarios.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2>Get in Touch</h2>
+        <div class="contact-grid">
+          <div class="panel">
+            <h3>Contact Form</h3>
+            <form action="mailto:your.email@example.com" method="post" enctype="text/plain">
+              <div style="display:grid; gap:12px;">
+                <input class="input" type="text" name="name" placeholder="Your name" required>
+                <input class="input" type="email" name="email" placeholder="Your email" required>
+                <textarea class="input" name="message" placeholder="Your message"></textarea>
+                <button class="btn primary" type="submit">Send</button>
+              </div>
+            </form>
+          </div>
+          <div class="panel">
+            <h3>Links</h3>
+            <p class="lead">Find me online:</p>
+            <div class="chips">
+              <a class="chip" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+              <a class="chip" href="#" target="_blank" rel="noopener">LinkedIn</a>
+              <a class="chip" href="#" target="_blank" rel="noopener">Google Scholar</a>
+              <a class="chip" href="#" download>Resume (PDF)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        © <span id="year"></span> Laxmi Tiwari • Built with just HTML + CSS
+      </div>
+    </footer>
+  </div>
+
+  <style>
+    /* Extra utility at the bottom to avoid CLS inlined */
+    .stretched { position: absolute; inset: 0; }
+  </style>
+  <script>
+    // Only for copyright year (optional; remove if you want 100% CSS/HTML)
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
