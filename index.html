@@ -4,137 +4,235 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Laxmi Tiwari — Portfolio</title>
+  <meta name="description" content="Portfolio of Laxmi Tiwari — AI Engineer specializing in Reinforcement Learning, Multi-Agent Systems, and Algorithmic Trading." />
+
+  <!-- Social preview -->
+  <meta property="og:title" content="Laxmi Tiwari — Portfolio" />
+  <meta property="og:description" content="AI Engineer | Reinforcement Learning | Multi-Agent Systems | Algorithmic Trading" />
+  <meta property="og:type" content="website" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="site-header">
     <div class="container header-inner">
       <div>
         <h1 class="site-title">Laxmi Tiwari</h1>
         <p class="site-tag">AI Engineer • Reinforcement Learning • Multi-Agent Systems</p>
       </div>
+
       <ul class="contact-list">
-        <li><a href="tel:+9779867343362">+977 9867343362</a></li>
-        <li><a href="mailto:tiwarilaxuu@gmail.com">tiwarilaxuu@gmail.com</a></li>
-        <li><a href="https://github.com/TiwariLaxuu/TiwariLaxuu.github.io" target="_blank">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/laxmi-tiwari/" target="_blank">LinkedIn</a></li>
-        <li><a href="https://orcid.org/0009-0009-1778-6947" target="_blank">ORCID</a></li>
+        <li><a href="tel:+9779867343362" aria-label="Phone">+977 9867343362</a></li>
+        <li><a href="mailto:tiwarilaxuu@gmail.com" aria-label="Email">tiwarilaxuu@gmail.com</a></li>
+        <li><a href="https://github.com/TiwariLaxuu/TiwariLaxuu.github.io" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/laxmi-tiwari/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://orcid.org/0009-0009-1778-6947" target="_blank" rel="noopener">ORCID</a></li>
       </ul>
     </div>
+
+    <nav class="nav">
+      <div class="container">
+        <ul>
+          <li><a href="#research">Research Interests</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#awards">Honours & Awards</a></li>
+          <li><a href="#conferences">Conferences</a></li>
+          <li><a href="#volunteering">Volunteering</a></li>
+          <li><a href="#presentations">Presentations</a></li>
+          <li><a href="#skills">Technical Skills</a></li>
+          <li><a href="#extracurricular">Extracurricular</a></li>
+          <li><a href="#references">References</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
-  <main>
-    <!-- Hero -->
+  <main id="main">
     <section class="hero">
       <div class="container">
         <h2>AI for Safe, Explainable Decision-Making</h2>
-        <p>I design and deploy reinforcement learning systems with a focus on safety, interpretability, and robust real-world performance.</p>
+        <p>
+          I design and deploy reinforcement learning systems—focusing on safety, interpretability,
+          and robust real-world performance across finance, autonomous systems, and multi-agent settings.
+        </p>
+        <a class="btn" href="#experience">View Experience</a>
       </div>
     </section>
 
-    <!-- Sections in rows -->
-    <div class="grid-sections container">
-      <!-- Research -->
-      <section id="research" class="card">
-        <h3>Research Interests</h3>
-        <ul class="chips">
-          <li>Reinforcement Learning</li>
-          <li>Multi-Agent Systems</li>
-          <li>Deep RL</li>
-          <li>Optimization</li>
-          <li>Autonomous Systems</li>
-          <li>Algorithmic Trading</li>
-          <li>AI Safety</li>
+    <section id="research" class="container section">
+      <h3>Research Interests</h3>
+      <ul class="chips">
+        <li>Reinforcement Learning</li>
+        <li>Multi-Agent Systems</li>
+        <li>Deep RL</li>
+        <li>Optimization</li>
+        <li>Autonomous Systems</li>
+        <li>Algorithmic Trading</li>
+        <li>AI Safety</li>
+      </ul>
+    </section>
+
+    <section id="education" class="container section">
+      <h3>Education</h3>
+      <div class="timeline">
+        <article class="card">
+          <header>
+            <h4>Tribhuvan University, IOE Pashchimanchal Campus</h4>
+            <span class="meta">Pokhara, Nepal • 2015–2019</span>
+          </header>
+          <p><strong>B.E. Electronics & Communication Engineering</strong> — Final grade: 71/100</p>
+        </article>
+
+        <article class="card">
+          <header>
+            <h4>University of Oxford</h4>
+            <span class="meta">Online Summer School • 2022</span>
+          </header>
+          <p><strong>Oxford Machine Learning Summer School</strong> — AI for Global Goals</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="container section">
+      <h3>Experience</h3>
+
+      <article class="card">
+        <header>
+          <h4>AI Engineer — Logictronix Technologies</h4>
+          <span class="meta">Kathmandu, Nepal • 2022–Present</span>
+        </header>
+        <ul class="bullets">
+          <li>Designed and implemented RL models from scratch, including custom OpenAI Gym environments, with emphasis on Explainable RL (XRL) and Safe RL.</li>
+          <li>Applied RL and MARL across finance, autonomous vehicles, and cooperative agent systems; delivered robust, scalable, production-ready solutions.</li>
+          <li>Leveraged solid math & optimization background for precise modeling, rapid experimentation, and strong algorithm design.</li>
+          <li>Continuously integrated new AI libraries and methods; implemented cutting-edge solutions efficiently.</li>
+          <li>Maintained a disciplined research habit (paper reviews daily) to adapt state-of-the-art approaches for deployment.</li>
+          <li>Delivered live trading systems and simulated autonomous-agent environments meeting performance and safety standards.</li>
         </ul>
-      </section>
+      </article>
 
-      <!-- Education -->
-      <section id="education" class="card">
-        <h3>Education</h3>
-        <p><strong>B.E. Electronics & Communication Engineering</strong><br>Tribhuvan University, 2015–2019</p>
-        <p><strong>Oxford Machine Learning Summer School</strong><br>University of Oxford, 2022</p>
-      </section>
-
-      <!-- Experience -->
-      <section id="experience" class="card">
-        <h3>Experience</h3>
-        <p><strong>AI Engineer</strong> — Logictronix Technologies (2022–Present)</p>
-        <p><strong>Research Engineer</strong> — NerdPlatoon (2020)</p>
-        <p><strong>Research Intern</strong> — NAAMII (2020)</p>
-        <p><strong>Committee Member</strong> — Women in Big Data Nepal (2020–2023)</p>
-      </section>
-
-      <!-- Awards -->
-      <section id="awards" class="card">
-        <h3>Honours & Awards</h3>
-        <ul>
-          <li>2025: Winner — FinRL Crypto Trading Competition</li>
-          <li>2024: Winner — Ready Tensor AI Showcase</li>
-          <li>2021: UNICEF Project Panchakanya Cold-Store</li>
+      <article class="card">
+        <header>
+          <h4>Research Engineer — NerdPlatoon</h4>
+          <span class="meta">2020</span>
+        </header>
+        <ul class="bullets">
+          <li>Built ML models (XGBoost, SVM) for used-vehicle price prediction.</li>
+          <li>Time-series analysis, feature engineering, and deployment in real-market platforms.</li>
         </ul>
-      </section>
+      </article>
 
-      <!-- Conferences -->
-      <section id="conferences" class="card">
-        <h3>Conferences</h3>
-        <ul>
-          <li>2025: IEEE IDS Conference</li>
-          <li>2025: Advances in Mathematical Finance, Freiburg</li>
-          <li>2024: AI in Finance Conference</li>
+      <article class="card">
+        <header>
+          <h4>Research Intern — NAAMII (Nepal Applied Mathematics & Informatics Institute)</h4>
+          <span class="meta">Kathmandu, Nepal • 2020</span>
+        </header>
+        <ul class="bullets">
+          <li>Developed deep learning models for image-based localization.</li>
+          <li>Improved geographic inference via visual-similarity metrics.</li>
         </ul>
-      </section>
+      </article>
 
-      <!-- Volunteering -->
-      <section id="volunteering" class="card">
-        <h3>Volunteering</h3>
-        <ul>
-          <li>2025: Mentor — NRCC Research Training</li>
-          <li>2025: Mentor — Columbia Univ. MAFN Project Nexus</li>
+      <article class="card">
+        <header>
+          <h4>Committee Member — Women in Big Data Nepal</h4>
+          <span class="meta">Kathmandu, Nepal • 2020–2023</span>
+        </header>
+        <ul class="bullets">
+          <li>Organized initiatives promoting women’s participation in data science & STEM.</li>
         </ul>
-      </section>
+      </article>
+    </section>
 
-      <!-- Presentations -->
-      <section id="presentations" class="card">
-        <h3>Presentations & Posters</h3>
-        <ul>
-          <li>2025: Poster — “Recurrent Lagrangian PPO …” Columbia Univ.</li>
-          <li>2025: Paper — IEEE CSCloud</li>
-          <li>2025: Paper — ACM AIFin Singapore</li>
-          <li>2025: CLEF 2025 Publication</li>
-        </ul>
-      </section>
+    <section id="awards" class="container section">
+      <h3>Honours & Awards</h3>
+      <ul class="bullets">
+        <li><strong>2025:</strong> Winner — FinRL Crypto Trading Competition (FinRL-AlphaSeek); Poster at IEEE IDS Conference.</li>
+        <li><strong>2024:</strong> Winner — Ready Tensor AI Showcase (Most Promising Innovation).</li>
+        <li><strong>2021:</strong> Youth CO:Lab National Winner — UNICEF Project Panchakanya Cold-Store.</li>
+      </ul>
+    </section>
 
-      <!-- Skills -->
-      <section id="skills" class="card">
-        <h3>Technical Skills</h3>
-        <ul class="chips">
-          <li>Python</li><li>TensorFlow</li><li>PyTorch</li><li>RL (Q-Learning, DQN, MARL)</li>
-          <li>Algo Trading</li><li>AI Safety</li><li>Optimization</li><li>Git</li><li>EC2</li>
-        </ul>
-      </section>
+    <section id="conferences" class="container section">
+      <h3>Conferences</h3>
+      <ul class="bullets">
+        <li><strong>2025:</strong> IEEE IDS Conference.</li>
+        <li><strong>2025:</strong> Advances in Mathematical Finance (University of Freiburg, Germany).</li>
+        <li><strong>2024:</strong> International Conference on AI in Finance.</li>
+      </ul>
+    </section>
 
-      <!-- Extracurricular -->
-      <section id="extracurricular" class="card">
-        <h3>Extracurricular</h3>
-        <p>Winner of inter-college football tournament. Active in running, hiking, fitness.</p>
-      </section>
+    <section id="volunteering" class="container section">
+      <h3>Volunteering</h3>
+      <ul class="bullets">
+        <li><strong>2025:</strong> Mentor, Research Training 2025 — Nepal Research and Collaboration Center (NRCC).</li>
+        <li><strong>2025:</strong> Mentor, MAFN Project Nexus — Columbia University & Logictronix Technologies.</li>
+      </ul>
+    </section>
 
-      <!-- References -->
-      <section id="references" class="card">
-        <h3>References</h3>
-        <p><strong>Krishna Gaihre</strong><br>CEO, Logictronix Technologies<br>krishna@logictronix.com</p>
-        <p><strong>Suraj Basnet Tulachan</strong><br>Associate Professor, IOE TU<br>suraj.tulachan@pasc.tu.edu.np</p>
-      </section>
-    </div>
+    <section id="presentations" class="container section">
+      <h3>Presentations & Posters</h3>
+      <ul class="bullets">
+        <li><strong>2025:</strong> Poster submitted — “Recurrent Lagrangian PPO with Decision Tree in Trading,” 11th Annual Bloomberg-Columbia Machine Learning in Finance Conference 2025, Columbia University.</li>
+        <li><strong>2025:</strong> Paper submitted — “FinAI Task 1,” IEEE CSCloud 2025.</li>
+        <li><strong>2025:</strong> Paper submitted — “Look-Ahead Reinforcement Learning: Integrating Time-Series Forecasting,” 6th ACM International Conference on AI in Finance, Singapore.</li>
+        <li><strong>2025:</strong> Paper published — “Multimodal AI for Gastrointestinal Diagnostics: Tackling VQA in MEDVQA-GI 2025,” CLEF 2025.</li>
+        <li><strong>2025:</strong> Poster presentation — “Advanced Factor Analysis and Ensemble Learning of RL Algorithm,” IEEE IDS Conference (Online).</li>
+      </ul>
+    </section>
+
+    <section id="skills" class="container section">
+      <h3>Technical Skills</h3>
+      <ul class="chips">
+        <li>Python</li>
+        <li>TensorFlow</li>
+        <li>PyTorch</li>
+        <li>NumPy</li>
+        <li>Reinforcement Learning (Q-Learning, DQN, MARL)</li>
+        <li>Algorithmic Trading</li>
+        <li>AI Safety</li>
+        <li>Optimization</li>
+        <li>Git</li>
+        <li>EC2 Deployment</li>
+      </ul>
+    </section>
+
+    <section id="extracurricular" class="container section">
+      <h3>Extracurricular Activities</h3>
+      <p><strong>Sports & Fitness:</strong> Winner of inter-college football tournament during undergraduate studies. Active in running, hiking, and maintaining physical fitness.</p>
+    </section>
+
+    <section id="references" class="container section">
+      <h3>References</h3>
+      <div class="refs">
+        <article class="card">
+          <h4>Professional Reference</h4>
+          <p><strong>Krishna Gaihre</strong><br />CEO, Logictronix Technologies<br />
+            <a href="mailto:krishna@logictronix.com">krishna@logictronix.com</a><br />
+            <a href="tel:+9779841078525">+977 9841078525</a>
+          </p>
+        </article>
+        <article class="card">
+          <h4>Academic Reference</h4>
+          <p><strong>Suraj Basnet Tulachan</strong><br />Associate Professor, IOE TU<br />
+            <a href="mailto:suraj.tulachan@pasc.tu.edu.np">suraj.tulachan@pasc.tu.edu.np</a>
+          </p>
+        </article>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="year"></span> Laxmi Tiwari • Sorakhutte, Kathmandu</p>
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Laxmi Tiwari • Sorakhutte, Kathmandu, Nepal</p>
+      <a class="top" href="#top" aria-label="Back to top">↑ Back to top</a>
     </div>
   </footer>
 
   <script>
+    // Auto year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
